@@ -19,7 +19,7 @@ architecture Behavioral of frecuencimetro is
 singal s_U1_to_U2: std_logic_vector(14 downto 0);
 
  
-.--FALTARIA REVISAR QUE TIENE DE MAL EL BLOQUE 2 
+--FALTARIA REVISAR QUE TIENE DE MAL EL BLOQUE 2 
 
 begin
 
@@ -28,7 +28,7 @@ port map
 (	i_sign_square  => I_SEÑAL,
 	CLK => CLK,
 	RST => RST, 
-	SALIDA  => s_aux1);
+	SALIDA  => s_U1_to_U2);
 
 
 	
