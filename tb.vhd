@@ -94,6 +94,14 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
+
+	RST <= '1';
+	
+	WAIT FOR 100 NS;
+	
+	RST <= '0';
+	WAIT FOR 100 NS;
+	
       
       wait;
    end process;
