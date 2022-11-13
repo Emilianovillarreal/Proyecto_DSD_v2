@@ -6,7 +6,7 @@ entity frecuencimetro is
     Port ( CLK : in  STD_LOGIC;
            I_SEÑAL : in  STD_LOGIC;
            RST : in  STD_LOGIC;
-			anodo : out std_logic_vector(3 downto 0);
+			  anodo : out std_logic_vector(3 downto 0);
            SALIDA : out  STD_LOGIC_VECTOR (6 downto 0));
 end frecuencimetro;
 
@@ -15,7 +15,10 @@ architecture Behavioral of frecuencimetro is
 
 signal s_count_reach, aux : std_logic;
 
-signal s_count,count_freeze : std_logic_vector(14 downto 0);
+signal s_count,count_freeze: std_logic_vector(13 downto 0);
+signal s_frequency : std_logic_vector(14 downto 0);
+
+signal s_selection : std_logic_vector(3 downto 0);
 
 begin
 
@@ -42,8 +45,26 @@ begin
 	end if;
 end process;
 
+frequency_calculation: entity work.DESPLAZAMIENTO_IZQ_V3
+port map
+(	CLK => CLK,
+	RST => RST,
+	count_frezze => s_count,
+	Frequency => s_frequency
+);
 
+RANGOS: entity work.RANGOS
+port map
+(	FREQUENCY => s_frequency,
+	SELECTION => s_selection
+);
 
+DECO: entity work.deco
+port map
+(	Entrada => s_selection,
+	Salida => SALIDA,
+	anodos => anodo
+);
 
 end Behavioral;
 
