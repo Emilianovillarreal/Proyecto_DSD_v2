@@ -83,6 +83,7 @@ begin
             else 
                 Salida <= "0001110";    --F
             end if;
+            
     
             
     end process deco;
