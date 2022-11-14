@@ -24,5 +24,6 @@ end process;
 
 o_count <= aux2;
 
+
 end Behavioral;
 
