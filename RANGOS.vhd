@@ -15,6 +15,7 @@ begin
 
 
 
+
 Rangos: process(FREQUENCY)
 
 begin 
